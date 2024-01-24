@@ -16,7 +16,7 @@
 
 <main class="container">
     <h1> Lista de livros </h1> 
-    {% if books %}
+    {% if books_list %}
     <table class="table">
         <thead>
             <tr>
@@ -33,7 +33,7 @@
             </tr>
         </thead>
         <tbody>
-              {% for book in books %}
+              {% for book in books_list %}
               <tr>
                   <td scope="col">{{ book.pk }}</td>
                   <td scope="col">{{ book.title }}</td>
