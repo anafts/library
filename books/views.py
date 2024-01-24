@@ -1,7 +1,12 @@
-from django.shortcuts import render
 from .models import Books
+from django.views.generic import ListView, CreateView
+from django.urls import reverse_lazy
 
-def books_list(request):
-    books = Books.objects.all()
+class BooksListView(ListView):
+    model = Books
 
-    return render(request, "books/books_list.html", {"books": books})
+
+class BooksCreateView(CreateView):
+    model = Books
+    fields = [ "title", "author", "gender", "pages", "copies", "isbn", "description", "publishing_company"]
+    success_url = reverse_lazy("books_list")
