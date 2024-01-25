@@ -35,7 +35,13 @@ Biblioteca
                   <td scope="col">{{ book.description }}</td>
                   <td scope="col">{{ book.publishing_company }}</td>
                   <td>
+                 {% if book.copies > 0 %}
+
                     <a href="#" class="btn btn-primary btn-sm mb-2"> Disponível </a>
+                    {% else %}
+                    <a href="#" class="btn btn-primary btn-sm disabled"> Indisponível </a>
+                      {% endif %}
+                   
                     <a href="{% url 'books_update' pk=book.pk %}" class="btn btn-secondary btn-sm mb-2">Editar</a>
                     <a href="#" class="btn btn-danger btn-sm">Excluír</a>
                   </td>

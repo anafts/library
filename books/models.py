@@ -8,6 +8,6 @@ class Books(models.Model):
     pages = models.IntegerField(null=False, blank=False)
     copies = models.IntegerField(null=False, blank=False)
     isbn = models.IntegerField(null=False, blank=False)
-    description = models.CharField(max_length=100, null=False, blank=False)
+    description = models.CharField(max_length=250, null=False, blank=False)
     publishing_company = models.CharField(max_length=100)
     created_at = models.DateField(auto_now_add=True)
