@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+   <h1> Tem certeza que deseja deletar? </h1>
+   <p> Ao deletar o livro <strong> {{ object.title }} </strong> não será possivel recuperá-lo! </p>
+
+
+ <form method="POST">
+    {% csrf_token %}
+
+    <button type="submit" class="btn btn-primary"> Confirmar </button>
+    <a href=" {% url 'books_list' %}" class="btn btn-secondary"> Cancelar </a>
+ </form>
+
+{% endblock content %}
