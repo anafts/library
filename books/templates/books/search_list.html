@@ -3,19 +3,45 @@
 {% block content %} 
 {% if searched %}
 
-<h1>  Você procurou o livro {{ searched }} </h1>
+<h1>  Você procurou o livro: {{ searched }} </h1>
 
-{% for book in books %}
-
-{{ book.title}}
-{{ book.author}}
-
+<table class="table">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Título</th>
+          <th scope="col">Autor</th>
+          <th scope="col">Genero</th>
+          <th scope="col">Páginas</th>
+          <th scope="col">Exemplares</th>
+          <th scope="col">ISBN</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Editora</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+          <tr>
+              <td scope="col">{{ book.pk }}</td>
+              <td scope="col">{{ book.title }}</td>
+              <td scope="col">{{ book.author }}</td>
+              <td scope="col">{{ book.gender}}</td>
+              <td scope="col">{{ book.pages }}</td>
+              <td scope="col">{{ book.copies }}</td>
+              <td scope="col">{{ book.isbn }}</td>
+              <td scope="col">{{ book.description }}</td>
+              <td scope="col">{{ book.publishing_company }}</td>
+          </tr>
+    </tbody>
+</table>
 {% endfor %}
 
 {% else %}
 
-<h1> ? </h1>
+<h1> O livro que você digitou não está cadastrado </h1>
 
 {% endif %}
+
+<a href=" {% url 'books_list' %}" class="btn btn-secondary"> Voltar </a>
 
 {% endblock content %}

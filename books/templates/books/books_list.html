@@ -39,10 +39,10 @@ Biblioteca
                   {% if book.copies > 0 %}
                     <a href="#" class="btn btn-primary btn-sm mb-2"> Disponível </a>
                   {% else %}
-                    <a href="#" class="btn btn-primary btn-sm disabled"> Indisponível </a>
+                    <a href="#" class="btn btn-primary btn-sm disabled mb-2"> Indisponível </a>
                   {% endif %}
                     <a href="{% url "books_update" pk=book.pk %}" class="btn btn-secondary btn-sm mb-2">Editar</a>
-                    <a href="{% url "books_delete" pk=book.pk %}" class="btn btn-danger btn-sm">Excluír</a>
+                    <a href="{% url "books_delete" pk=book.pk %}" class="btn btn-danger btn-sm mb-2">Excluír</a>
                   </td>
               </tr>
               {% endfor %}
