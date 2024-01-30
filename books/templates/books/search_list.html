@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %} 
+{% if searched %}
+
+<h1>  Você procurou o livro {{ searched }} </h1>
+
+{% for book in books %}
+
+{{ book.title}}
+{{ book.author}}
+
+{% endfor %}
+
+{% else %}
+
+<h1> ? </h1>
+
+{% endif %}
+
+{% endblock content %}
