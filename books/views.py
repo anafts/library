@@ -25,7 +25,7 @@ def search_list(request):
 
     if request.method == 'POST':
         searched = request.POST['searched']
-        books = Books.objects.filter(title__contains = searched)
+        books = Books.objects.filter(title__contains = searched) | Books.objects.filter(author__contains = searched)
 
         return render(request, 
         'books/search_list.html', {'searched': searched, 'books': books})

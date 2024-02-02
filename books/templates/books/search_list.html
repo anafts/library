@@ -17,6 +17,7 @@
           <th scope="col">ISBN</th>
           <th scope="col">Descrição</th>
           <th scope="col">Editora</th>
+          <th scope="col"> Status </th>
         </tr>
     </thead>
     <tbody>
@@ -31,6 +32,14 @@
               <td scope="col">{{ book.isbn }}</td>
               <td scope="col">{{ book.description }}</td>
               <td scope="col">{{ book.publishing_company }}</td>
+              <td>
+
+                {% if book.copies > 0 %}
+                  <a href="#" class="btn btn-primary btn-sm mb-2"> Disponível </a>
+                {% else %}
+                  <a href="#" class="btn btn-primary btn-sm disabled mb-2"> Indisponível </a>
+                {% endif %}
+                </td>
           </tr>
     </tbody>
 </table>
